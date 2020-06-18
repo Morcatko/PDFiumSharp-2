@@ -5,34 +5,9 @@
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <AssemblyVersion>0.1.2.0</AssemblyVersion>
     <Copyright>Copyright © Tobias Meyer 2017</Copyright>
-    <Platforms>AnyCPU;x64</Platforms>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Platforms>AnyCPU</Platforms>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard1.4\PDFiumSharp.xml</DocumentationFile>
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <DocumentationFile>bin\Release\netstandard1.4\PDFiumSharp.xml</DocumentationFile>
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="PDFium.g.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>PDFium.tt</DependentUpon>
-    </None>
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
@@ -40,19 +15,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Types\FPDF_Typedefs.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>FPDF_Typedefs.g.cs</LastGenOutput>
-    </None>
     <None Update="PDFium.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>PDFium.g.cs</LastGenOutput>
     </None>
-    <None Update="pdfium_x64.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="pdfium_x86.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Update="Types\FPDF_Typedefs.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>FPDF_Typedefs.g.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
@@ -72,5 +41,4 @@
       <DependentUpon>FPDF_Typedefs.tt</DependentUpon>
     </Compile>
   </ItemGroup>
-
 </Project>
